@@ -57,44 +57,6 @@ pnpm md-magic --config ./config.js
 
 It's a pretty simple plugin, this README is basically longer than the source code. The rough gist is that it makes a TypeScript AST of the file, searches in that file with the name passed in as 'symbol' - then use a printer to print it.
 
-<!-- AUTO-GENERATED-CONTENT:START (CODE:src=./index.js) -->
-<!-- The below code snippet is automatically added from ./index.js -->
-```js
-// @ts-check
-const ts = require("typescript");
-
-/* Match <!-- AUTO-GENERATED-CONTENT:START (TYPE:src=filepath&symbol=Type) --> */
-module.exports = function TYPE(_content, options) {
-  const mds = [];
-  const program = ts.createProgram([options.src], {});
-  const sourceFile = program.getSourceFile(options.src);
-  if (!sourceFile) throw new Error(`Could not find a source file at ${options.src} - note files are relative to the cwd, not the markdown file.`)
-
-  /** @type {import("typescript").TypeAliasDeclaration} */
-  let typeNode = undefined;
-  const findSymbol = (node) => {
-    if(node) {
-      console.log(node.name)  
-    }
-    console.log(node?.name, node?.name?.escapedText)
-    if ( node && node.name && node.name.escapedText && node.name.escapedText === options.symbol) {
-      typeNode = node;
-    }
-
-    if (!typeNode) ts.forEachChild(node, findSymbol);
-  };
-
-  findSymbol(sourceFile);
-  if (!typeNode)
-    throw new Error(`Could not find ${options.symbol} in ${options.src}`);
-
-  const printer = ts.createPrinter({ newLine: ts.NewLineKind.LineFeed });
-  
-  return '```ts\n' + printer.printNode(ts.EmitHint.Unspecified, typeNode, sourceFile) +  "\n```"
-};
-```
-<!-- AUTO-GENERATED-CONTENT:END -->
-
 ### Contributing
 
 You can run it locally:
