@@ -51,6 +51,7 @@ Then you run it like:
 pnpm md-magic --config ./config.js
 ```
 
+See [this PR for an example](https://github.com/shikijs/twoslash/pull/59).
 
 ### This repo
 
