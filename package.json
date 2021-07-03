@@ -1,11 +1,11 @@
 {
   "name": "markdown-magic-inline-types",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "main": "index.js",
   "author": "Orta Therox",
   "license": "MIT",
   "scripts": {
-    "readme": "pnpm md-magic -p example/README.md --config ./example/config.js"
+    "readme": "pnpm md-magic"
   },
   "dependencies": {
     "typescript": "^4"

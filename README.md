@@ -8,7 +8,6 @@ Lets you inline TypeScript types in your READMEs trivially. You pass in a file a
 Turns to:
 
 ````md
-
 <!-- AUTO-GENERATED-CONTENT:START (TYPE:src=./types.d.ts&symbol=B) -->
 <!-- The below code snippet is automatically added from ./types.d.ts -->
 ```ts
