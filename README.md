@@ -22,7 +22,7 @@ type B = {
 <!-- AUTO-GENERATED-CONTENT:END -->
 ````
 
-When you run `md-magic`.
+When you run `pnpm md-magic`.
 
 ### Setup
 
