@@ -22,5 +22,6 @@ module.exports = function TYPE(_content, options) {
     throw new Error(`Could not find ${options.symbol} in ${options.src}`);
 
   const printer = ts.createPrinter({ newLine: ts.NewLineKind.LineFeed });
-  return printer.printNode(ts.EmitHint.Unspecified, typeNode, sourceFile);
+  
+  return '```ts\n' + printer.printNode(ts.EmitHint.Unspecified, typeNode, sourceFile) +  "\n```"
 };

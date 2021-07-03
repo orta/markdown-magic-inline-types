@@ -1,7 +1,7 @@
 Lets you inline TypeScript types in your READMEs trivially. You pass in a file and the type to pick up in your README.
 
 ```md
-<!-- AUTO-GENERATED-CONTENT:START (CODE:src=./types.d.ts&symbol=B) -->
+<!-- AUTO-GENERATED-CONTENT:START (TYPE:src=./types.d.ts&symbol=B) -->
 <!-- AUTO-GENERATED-CONTENT:END -->
 ```
 
@@ -9,7 +9,7 @@ Turns to:
 
 ````md
 
-<!-- AUTO-GENERATED-CONTENT:START (CODE:src=./types.d.ts&symbol=B) -->
+<!-- AUTO-GENERATED-CONTENT:START (TYPE:src=./types.d.ts&symbol=B) -->
 <!-- The below code snippet is automatically added from ./types.d.ts -->
 ```ts
 /** A */
@@ -38,7 +38,7 @@ const markdownMagic = require('markdown-magic')
 
 const config = {
   transforms: {
-    TYPES: require('markdown-magic-inline-types')
+    TYPE: require('markdown-magic-inline-types')
   }
 }
 
