@@ -66,12 +66,17 @@ const ts = require("typescript");
 /* Match <!-- AUTO-GENERATED-CONTENT:START (TYPE:src=filepath&symbol=Type) --> */
 module.exports = function TYPE(_content, options) {
   const mds = [];
-  let program = ts.createProgram([options.src], {});
+  const program = ts.createProgram([options.src], {});
   const sourceFile = program.getSourceFile(options.src);
+  if (!sourceFile) throw new Error(`Could not find a source file at ${options.src} - note files are relative to the cwd, not the markdown file.`)
 
   /** @type {import("typescript").TypeAliasDeclaration} */
   let typeNode = undefined;
   const findSymbol = (node) => {
+    if(node) {
+      console.log(node.name)  
+    }
+    console.log(node?.name, node?.name?.escapedText)
     if ( node && node.name && node.name.escapedText && node.name.escapedText === options.symbol) {
       typeNode = node;
     }
@@ -84,7 +89,8 @@ module.exports = function TYPE(_content, options) {
     throw new Error(`Could not find ${options.symbol} in ${options.src}`);
 
   const printer = ts.createPrinter({ newLine: ts.NewLineKind.LineFeed });
-  return printer.printNode(ts.EmitHint.Unspecified, typeNode, sourceFile);
+  
+  return '```ts\n' + printer.printNode(ts.EmitHint.Unspecified, typeNode, sourceFile) +  "\n```"
 };
 ```
 <!-- AUTO-GENERATED-CONTENT:END -->

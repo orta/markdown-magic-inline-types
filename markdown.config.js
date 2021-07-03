@@ -4,9 +4,9 @@ const markdownMagic = require('markdown-magic')
 
 const config = {
   transforms: {
-    TYPES: require('../')
+    TYPE: require('./')
   }
 }
 
-const markdownPath = path.join(__dirname, 'README.md')
+const markdownPath = path.join(__dirname, 'example', 'README.md')
 markdownMagic(markdownPath, config)

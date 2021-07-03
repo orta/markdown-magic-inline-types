@@ -4,8 +4,9 @@ const ts = require("typescript");
 /* Match <!-- AUTO-GENERATED-CONTENT:START (TYPE:src=filepath&symbol=Type) --> */
 module.exports = function TYPE(_content, options) {
   const mds = [];
-  let program = ts.createProgram([options.src], {});
+  const program = ts.createProgram([options.src], {});
   const sourceFile = program.getSourceFile(options.src);
+  if (!sourceFile) throw new Error(`Could not find a source file at ${options.src} - note files are relative to the cwd, not the markdown file.`)
 
   /** @type {import("typescript").TypeAliasDeclaration} */
   let typeNode = undefined;
