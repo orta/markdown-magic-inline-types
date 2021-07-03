@@ -1,3 +1,5 @@
+## markdown-magic-inline-types
+
 Lets you inline TypeScript types in your READMEs trivially. You pass in a file and the type to pick up in your README.
 
 ```md
